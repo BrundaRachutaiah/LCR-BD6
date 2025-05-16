@@ -25,7 +25,7 @@ app.post("/login", async (req, res) => {
     }
 
     if (attempts[ip].count >= 5) {
-        return res.status(404).json({ error: "Too many login attempts. Try again later." })
+        return res.status(429).json({ error: "Too many login attempts. Try again later." })
     }
 
     const { email, password } = req.body
